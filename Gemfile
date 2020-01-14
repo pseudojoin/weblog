@@ -11,6 +11,12 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~>0.21'
+
+# Use elasticsearch
+gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
+gem 'elasticsearch-persistence'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets

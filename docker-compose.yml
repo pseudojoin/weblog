@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    image: postgres
+    image: postgres:latest
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     ports:
@@ -13,5 +13,27 @@ services:
       - .:/weblog
     ports:
       - "3000:3000"
+    environment:
+      - ELASTICSEARCH_URL=elasticsearch
+      - DEV_DATABASE_HOST=db
     depends_on:
       - db
+      - elasticsearch
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.1
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+  #     # - xpack.security.enabled=false
+  #     # - xpack.monitoring.enabled=false
+  #     # - xpack.graph.enabled=false
+  #     # - xpack.watcher.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - .:/weblog
+    ports:
+      - "9200:9200"
