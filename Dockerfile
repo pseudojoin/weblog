@@ -17,7 +17,7 @@ WORKDIR /weblog
 COPY Gemfile /weblog/Gemfile
 COPY Gemfile.lock /weblog/Gemfile.lock
 
-# Fix bundle version from 1.17.1 to 2.1.4
+# Fix bundle version from 1.17.3 to 2.1.4
 RUN bundle -v
 RUN gem install bundler
 
