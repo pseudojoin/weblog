@@ -18,12 +18,18 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def search
+    byebug
+    query = params[:search_articles].presence && params[:search_articles][:query]
+
+    if query
+      @artecles = Article.search_filtered(query)
+    end
+  end
+
   def create
-    # render plain: params[:article].inspect
-    # @article = Article.new(params.require(:article).permit(:title, :text)
-
     @article = Article.new(article_params)
-
+    byebug
     if @article.save
       redirect_to @article
     else
