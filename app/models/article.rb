@@ -8,7 +8,6 @@ class Article < ApplicationRecord
     mappings dynamic: false do
       indexes :title, type: :text, analyzer: :english
       indexes :text, type: :text, analyzer: :english
-      indexes :comment, type: :text, analyzer: :english
     end
   end
 
@@ -19,19 +18,10 @@ class Article < ApplicationRecord
   def self.search_filtered(query)
     self.search({
       query: {
-        bool: {
-          must: [
-          {
-            multi_match: {
-              query: query,
-              fields: [:title, :text]
-            }
-          },
-          {
-            match: {
-              # published: true
-            }
-          }]
+        multi_match: {
+          query: query,
+          fields: [:title, :text],
+          fuzziness: "AUTO"
         }
       }
     })
