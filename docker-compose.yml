@@ -38,19 +38,19 @@ services:
       - .:/weblog
     ports:
       - "9200:9200"
-  kibana:
-    image: docker.elastic.co/kibana/kibana:7.5.1
-    environment:
-      SERVER_NAME: localhost
-      ELASTICSEARCH_URL: http://localhost:9200/
-    ports:
-      - 5601:5601
-    volumes:
-      - .:/weblog
-    ulimits:
-      nproc: 65535
-      memlock:
-        soft: -1
-        hard: -1
-    cap_add:
-      - ALL
+  # kibana:
+  #   image: docker.elastic.co/kibana/kibana:7.5.1
+  #   environment:
+  #     SERVER_NAME: localhost
+  #     ELASTICSEARCH_URL: http://localhost:9200/
+  #   ports:
+  #     - 5601:5601
+  #   volumes:
+  #     - .:/weblog
+  #   ulimits:
+  #     nproc: 65535
+  #     memlock:
+  #       soft: -1
+  #       hard: -1
+  #   cap_add:
+  #     - ALL

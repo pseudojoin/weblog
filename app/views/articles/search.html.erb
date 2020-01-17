@@ -1,6 +1,6 @@
 <h1>ElasticSearch for Articles</h1>
 
-<%= form_for :search_articles, url: search_articles_path, id: "article_search_form", method: :get do |form| %>
+<%= form_for :search_articles, url: search_articles_path, id: "article_search_form", method: :get, remote: true do |form| %>
   <%= form.text_field :query, value: params[:search_articles].presence && params[:search_articles][:query] %>
   <%= form.submit 'Search by Elastico' %>
 <% end %>

@@ -17,6 +17,10 @@ gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
 gem 'elasticsearch-persistence'
 
+# Use bootstrap 4.4.1
+gem 'bootstrap', '~> 4.4', '>= 4.4.1'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
