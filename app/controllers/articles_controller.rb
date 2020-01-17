@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+  http_basic_authenticate_with name: "user", password: "secret", except: [:index, :show]
 
   def index
     @articles = Article.all
@@ -19,17 +19,15 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    byebug
     query = params[:search_articles].presence && params[:search_articles][:query]
 
     if query
-      @artecles = Article.search_filtered(query)
+      @articles = Article.search_filtered(query)
     end
   end
 
   def create
     @article = Article.new(article_params)
-    byebug
     if @article.save
       redirect_to @article
     else
