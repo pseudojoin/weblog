@@ -17,8 +17,11 @@ gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
 gem 'elasticsearch-persistence'
 
+# Use CoffeeScript
+gem 'coffee-script', '~> 2.4', '>= 2.4.1'
+
 # Use bootstrap 4.4.1
-gem 'bootstrap', '~> 4.4', '>= 4.4.1'
+# gem 'bootstrap', '~> 4.4', '>= 4.4.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 
 # Use Puma as the app server

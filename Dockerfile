@@ -10,6 +10,7 @@ RUN curl -sL https://deb.nodesource.com/setup_13.x | bash - \
   && apt-get install -qy yarn
 
 # RUN echo 'ru_RU.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen
+RUN cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
 RUN mkdir /weblog
 WORKDIR /weblog

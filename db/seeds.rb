@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Create simple 10 Articles without comments
+10.times do |t|
+  Article.create(
+    title: "Article" + t.to_s,
+    text: "Article_Text_" + t.to_s,
+  )
+end

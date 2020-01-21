@@ -19,8 +19,7 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    query = params[:search_articles].presence && params[:search_articles][:query]
-
+    query = params[:query].presence && params[:query]
     if query
       @articles = Article.search_filtered(query)
     end
@@ -54,6 +53,6 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :text)
+      params.require(:article).permit(:title, :text, :query)
     end
 end
