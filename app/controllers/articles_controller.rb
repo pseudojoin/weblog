@@ -22,6 +22,7 @@ class ArticlesController < ApplicationController
     query = params[:query].presence && params[:query]
     if query
       @articles = Article.search_filtered(query)
+
       render partial: 'search_result', layout: false
     end
   end
