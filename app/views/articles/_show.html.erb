@@ -1,0 +1,26 @@
+<div id='form'>
+  <p>
+    <h2>Title:</h2>
+    <%= @article.title %>
+    <h2>Text:</h2>
+    <%= @article.text %>
+  </p>
+
+  <p>
+    <%= link_to 'Edit', edit_article_path(@article), id: 'edit_article', remote: true %>
+  </p>
+
+  <h3>Comments</h3>
+  <div id="form_comments">
+    <h2>Add a comment:</h2>
+    <%= render 'comments/form' %>
+  </div>
+
+  <div id="comments_container">
+    <%= render @article.comments %>
+  </div>
+
+  <p>
+    <%= link_to 'Close', articles_path %>
+  </p>
+</div>

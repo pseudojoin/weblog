@@ -10,6 +10,8 @@
 
 <p>
   <%= link_to  'Destroy Comment', [comment.article, comment],
+                id: 'destroy_comment',
+                remote: true,
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>
 </p>

@@ -10,7 +10,7 @@ class Article < ApplicationRecord
   end
 
   has_many :comments, dependent: :destroy
-  validates :title, presence: true,
+  validates :title, :text, presence: true,
                     length: {minimum: 1}
 
   def self.search_filtered(query)

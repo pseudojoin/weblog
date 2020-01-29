@@ -1,0 +1,32 @@
+<div id='form'>
+  <h2>All Articles</h2>
+  <% if @articles.empty?%>
+    <h3>
+      No Articles
+    </h3>
+  <% else %>
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Text</th>
+        <th colspan="3">Actions</th>
+      </tr>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.id %></td>
+          <td><%= link_to article.title, article_path(article.id) %></td>
+          <td><%= article.text %></td>
+          <td><%= link_to "Show", article_path(article.id),
+                  remote: true %></td>
+          <td><%= link_to "Edit", edit_article_path(article.id),
+                  remote: true %></td>
+          <td><%= link_to "Destroy", article_path(article.id),
+                  remote: true,
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>

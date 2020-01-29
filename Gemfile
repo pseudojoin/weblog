@@ -19,6 +19,7 @@ gem 'elasticsearch-persistence'
 
 # Use CoffeeScript
 gem 'coffee-script', '~> 2.4', '>= 2.4.1'
+gem 'coffee-rails', '~> 5.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 
 # Use Devise to Authorization
@@ -46,8 +47,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-remote'
 end
 
 group :development do

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :articles do
     collection do
+      get :show_all
       get :search
+      get :search_result
     end
     resources :comments
   end
