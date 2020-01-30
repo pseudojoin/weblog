@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    NotifierMailer.with(article: @article).article_email.deliver_now
     respond_to do |format|
       format.js { render 'show' }
     end
